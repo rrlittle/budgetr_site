@@ -1,0 +1,103 @@
+{% load static %}
+<head>
+	<title>Budgetr</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+	<script type="text/javascript">
+
+	function makeOrderedHash() {
+	    var keys = [];
+	    var vals = {};
+	    return {
+	        push: function(k,v) {
+	            if (!vals[k]) keys.push(k);
+	            vals[k] = v;
+	        },
+	        insert: function(pos,k,v) {
+	            if (!vals[k]) {
+	                keys.splice(pos,0,k);
+	                vals[k] = v;
+	            }
+	        },
+	        val: function(k) {return vals[k]},
+	        length: function(){return keys.length},
+	        keys: function(){return keys},
+	        values: function(){return vals}
+	    };
+	};
+	var data = {};
+		{% for fname, fdata in flows.items %}
+			data['{{fname}}'] = {'dates': [], 'values': []};
+			{% for data in fdata %}
+				data['{{fname}}']['dates'].push('{{data.date}}');	 
+				data['{{fname}}']['values'].push({{data.value}});	 
+			{% endfor %}
+		{% endfor %}
+	console.log(data)
+	var wealth = makeOrderedHash()
+	for (fname in data){
+		for (var i = 0; i < data[fname].length; i++) {
+			var date = data[fname]['date'][i]
+			var val = data[fname]['value'][i]
+			if (wealth[date] === undefined){
+				wealth[date] = val
+			}
+			else{
+				wealth[date] += 
+			}
+		}
+	}
+
+	</script>
+	<style type="text/css">
+        html, body {
+            height: 50%;
+            margin: 0;
+        }
+
+        .wrapper {
+            min-height: 50%; 
+        }
+    </style>
+</head>
+
+{% for flow in flows %}
+	<canvas id="{{flow}}-Chart"></canvas>
+	<script type="text/javascript">
+		var {{flow}}_chart = document.getElementById("{{flow}}-Chart");
+		var {{flow}}_data = {
+				labels: data['{{flow}}']['dates'],
+				// labels: ["January", "February", "March", "April", "May", "June", "July"],
+				datasets: [
+					{
+						label: "{{flow}}",
+			            fill: false,
+			            lineTension: 0.1,
+			            backgroundColor: "rgba(75,192,192,0.4)",
+			            borderColor: "rgba(75,192,192,1)",
+			            borderCapStyle: 'butt',
+			            borderDash: [],
+			            borderDashOffset: 0.0,
+			            borderJoinStyle: 'miter',
+			            pointBorderColor: "rgba(75,192,192,1)",
+			            pointBackgroundColor: "#fff",
+			            pointBorderWidth: 1,
+			            pointHoverRadius: 5,
+			            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+			            pointHoverBorderColor: "rgba(220,220,220,1)",
+			            pointHoverBorderWidth: 2,
+			            pointRadius: 1,
+			            pointHitRadius: 10,
+			            // data: [65, 59, 80, 81, 56, 55, 40],
+			            data: data['{{flow}}']['values'],
+			            spanGaps: false,
+					}
+				]
+			}
+		new Chart({{flow}}_chart, {
+			type: 'line',
+			data: {{flow}}_data
+		})
+		{{flow}}_chart.canvas.width = 200;
+		{{flow}}_chart.canvas.height = 200;
+	</script>
+{% endfor %}
