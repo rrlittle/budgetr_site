@@ -1,22 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from models import Flow
 from datetime import datetime
-from utils import list_of_days, datetime_in_datetime_list
+import utils
 
 
 def index(request, end_yr, end_mo, end_day):
-	end_date = datetime(int(end_yr), int(end_mo), int(end_day))
-	ret = {}
-	for flow in Flow.objects.all():
-		prev = 0
-		ret[flow.name] = []
-		ocs = flow.recurrence.between(flow.start_date, end_date)
-		for d in list_of_days(flow.start_date, end_date):
-			if datetime_in_datetime_list(d, ocs):
-				# import ipdb; ipdb.set_trace()
-				prev += flow.amount
-			ret[flow.name].append({
-				'date': '%s/%s/%s' % (d.year, d.month, d.day),
-				'value': prev
-			})
-	return render(request, 'budgetr/index.html', {'flows': ret})
+    return render(request, 'budgetr/index.html', {})
+
+
+def flow(request, flowid, end_yr, end_mo, end_day):
+    end_date = datetime(int(end_yr), int(end_mo), int(end_day))
+    flow = get_object_or_404(Flow, flowid)
+    tally = utils.calc_flow(flow, end_date)
+    return utils.plot(tally)
+
+
+def wealth(request, end_yr, end_mo, end_day):
+    end_date = datetime(int(end_yr), int(end_mo), int(end_day))
+    print 'calcing wealth'
+    wealth = utils.calc_wealth(end_date)
+    return utils.plot(wealth)
