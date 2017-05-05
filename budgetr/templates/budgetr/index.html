@@ -1,261 +1,45 @@
 {% load static %}
 
+
+
+<script type="text/javascript" src="/jsi18n"></script>
+<link href="/static/recurrence/css/recurrence.css" type="text/css" media="all" rel="stylesheet">
+<script type="text/javascript" src="/static/recurrence/js/recurrence.js"></script>
+<script type="text/javascript" src="/static/recurrence/js/recurrence-widget.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
 
-
-{# <script type="text/javascript" src="/jsi18n"></script> #}
-{# <link href="/static/recurrence/css/recurrence.css" type="text/css" media="all" rel="stylesheet"> #}
-{# <script type="text/javascript" src="/static/recurrence/js/recurrence.js"></script> #}
-{# <script type="text/javascript" src="/static/recurrence/js/recurrence-widget.js"></script> #}
-
-
-Example
-<div class="ui segment" id="example3">
-  <div class="left ui rail" style="min-height: 1826.23px;">
-    <div class="ui sticky" style="width: 272px !important; height: 1826.23px !important; left: 275.5px; top: 0px;">
-      <h3 class="ui header">Long Stuck Content</h3>
-      <div class="ui divided items">
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="ui tiny image">
-            <img src="https://semantic-ui.com/images/wireframe/image.png">
-          </div>
-          <div class="middle aligned content">
-            <a class="header">Followup Article</a>
-            <div class="meta">
-              <span class="author">By <a>Author</a></span>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="ui grid" id="example3">
+  	<div class="ui segment five wide column">
+  		<div class="ui divided items">
+    		{% for f in flows %}
+    			<div class="item">
+    	        	<div class="ui tiny image">
+    	        	  <img src="https://semantic-ui.com/images/wireframe/image.png">
+    	        	</div>
+    	        	<div class="middle aligned content">
+    	        	  <a class="header">{{f.name}}</a>
+    	        	  <div class="ui container">
+    	        	  	{{f.recurrence}}
+    	        	  </div>
+    	        	</div>
+    	      	</div>
+    		{% endfor %}
+    	</div>
     </div>
-  </div>
-  <div class="right ui rail" style="min-height: 262.531px;">
-    <div class="ui sticky" style="width: 272px !important; height: 262.531px !important; left: 1357.5px;">
-      <h3 class="ui header">Short Stuck Content</h3>
-      <img>
+    <div class="ui segment eleven wide column">
+		<div class="ui sticky fixed top" style="margin-top: 60px;">
+			<img class="ui wireframe paragraph image" src="https://semantic-ui.com/images/wireframe/paragraph.png">
+			<img class="ui wireframe paragraph image" src="https://semantic-ui.com/images/wireframe/paragraph.png">
+		</div>
     </div>
-  </div>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
-  <p>jhgjhgjgjhg</p>
 </div>
-
 <script type="text/javascript">
 	$('.ui.sticky')
   .sticky({
+  	offset: 50,
     context: '#example3'
-  })
-;
+  });
 </script>
