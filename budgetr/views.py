@@ -6,9 +6,21 @@ import utils
 
 
 def index(request):
+    flowsForms = []
+    for f in Flow.objects.all():
+        fp = FlowPost(instance=f)
+        fpv = fp.visible_fields()
+        flowsForms.append({
+            'name': fpv[0], 
+            'recurrence': fpv[1].as_widget(attrs={
+                'id': '%s-%s' % (f, f.id),
+                'class': 'recurrence-widget'
+            })
+        })
     context = {
-        'flows': [FlowPost(instance=f) for f in Flow.objects.all()]
+        'flows': flowsForms
     }
+    
     return render(request, 'budgetr/index.html', context)
 
 
