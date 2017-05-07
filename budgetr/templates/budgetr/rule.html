@@ -1,0 +1,147 @@
+<form class="rulemodel">
+	<div class="mode">
+		<input class="checkbox" type="checkbox" name="mode">
+		<span class="recurrence-label">Exclude these occurences</span>
+	</div>
+	<div class="freq">
+		<span class="recurrence-label">Frequency:</span>
+		<select name="freq">
+			<option value="0">Annually</option>
+			<option value="1">Monthly</option>
+			<option value="2">Weekly</option>
+			<option value="3">Daily</option>
+		</select>
+	</div>
+	<div class="interval">
+		<span class="recurrence-label">Every</span>
+		<input name="interval" size="1" value="1">
+		<span class="laebl">week</span>
+	</div>
+	<div class="form">
+		<div class="yearly" style="display: none;">
+			<div>
+				<table class="grid" cellpadding="0" cellspacing="0" border="0">
+					<tbody>
+						<tr><td>Jan</td><td>Feb</td><td>Mar</td><td>Apr</td>
+						</tr>
+						<tr><td>May</td><td>Jun</td><td>Jul</td><td>Aug</td>
+						</tr>
+						<tr><td>Sep</td><td>Oct</td><td>Nov</td><td>Dec</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="byday">
+				<input class="checkbox" type="checkbox" name="byday">
+				<span class="recurrence-label">On the:</span>
+			</div>
+			<div class="section">
+				<select name="position" disabled="">
+					<option value="1">first</option>
+					<option value="2">second</option>
+					<option value="3">third</option>
+					<option value="4">fourth</option>
+					<option value="-1">last</option>
+					<option value="-2">second last</option>
+					<option value="-3">third last</option>
+				</select>
+				<select name="weekday" disabled="">
+					<option value="0">Monday</option>
+					<option value="1">Tuesday</option>
+					<option value="2">Wednesday</option>
+					<option value="3">Thursday</option>
+					<option value="4">Friday</option>
+					<option value="5">Saturday</option>
+					<option value="6">Sunday</option>
+				</select>
+			</div>
+		</div>
+		<div class="monthly" style="display: none;">
+			<ul class="monthly">
+				<li class="monthday">
+				<input class="radio" type="radio" name="monthly" value="monthday">
+				<span class="recurrence-label">Each:</span>
+				<div class="section">
+					<table class="grid" cellpadding="0" cellspacing="0" border="0">
+						<tbody>
+							<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+							<tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr>
+							<tr><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr>
+							<tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+							<tr><td>29</td><td>30</td><td>31</td>
+								<td class=" empty"></td>
+								<td class=" empty"></td>
+								<td class=" empty"></td>
+								<td class=" empty"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				</li>
+				<li class="weekday">
+				<input class="radio" type="radio" name="monthly" value="weekday">
+				<span class="recurrence-label">On the:</span>
+				<div class="section">
+					<select name="position" disabled="">
+						<option value="1">first</option>
+						<option value="2">second</option>
+						<option value="3">third</option>
+						<option value="4">fourth</option>
+						<option value="-1">last</option>
+						<option value="-2">second last</option>
+						<option value="-3">third last</option>
+					</select>
+					<select name="weekday" disabled="">
+						<option value="0">Monday</option>
+						<option value="1">Tuesday</option>
+						<option value="2">Wednesday</option>
+						<option value="3">Thursday</option>
+						<option value="4">Friday</option>
+						<option value="5">Saturday</option>
+						<option value="6">Sunday</option>
+					</select>
+				</div>
+				</li>
+			</ul>
+		</div>
+		<div class="weekly">
+		<div class="section">
+			<table class="grid" cellpadding="0" cellspacing="0" border="0">
+				<tbody>
+					<tr>
+						<td>Mon</td>
+						<td>Tue</td>
+						<td>Wed</td>
+						<td>Thu</td>
+						<td>Fri</td>
+						<td>Sat</td>
+						<td>Sun</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+		<div class="daily" style="display: none;">
+		</div>
+	</div>
+	<div class="limit">
+		<input class="checkbox" type="checkbox" name="limit">
+		<span class="recurrence-label">Repeat until:</span>
+		<ul class="until-count disabled">
+			<li class="until">
+				<input class="radio" type="radio" name="until_count" value="until" disabled="">
+				<span class="recurrence-label">Date:</span>
+				<span class="date-selector">
+					<input class="date-field" size="10" value="" disabled="">
+					<a class="calendar-button" href="javascript:void(0)" title="Calendar">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				</span>
+			</li>
+			<li class="count">
+				<input class="radio" type="radio" name="until_count" value="count" disabled="">
+				<span class="recurrence-label">Occurs</span>
+				<input name="count" size="1" value="1" disabled="">
+				<span class="recurrence-label"> times</span>
+			</li>
+		</ul>
+	</div>
+</form>

@@ -11,28 +11,29 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
 
-<div class="ui grid" id="example3">
-  	<div class="ui segment five wide column">
+<div class="ui left aligned grid" id="example3">
+	<div class="ui segment five wide column">
   		<div class="ui divided items">
     		{% for f in flows %}
     			<div class="item">
     	        	<div class="ui tiny image">
     	        	  <img src="https://semantic-ui.com/images/wireframe/image.png">
     	        	</div>
-    	        	<div class="middle aligned content">
+    	        	<form class="middle aligned content">
     	        	  <a class="header">{{f.name}}</a>
     	        	  <div class="ui container">
     	        	  	{{f.recurrence}}
     	        	  </div>
-    	        	</div>
+    	        	</form>
     	      	</div>
     		{% endfor %}
     	</div>
-    </div>
-    <div class="ui segment eleven wide column">
+	</div>
+    <div class="ui seven wide column container">
 		<div class="ui sticky fixed top" style="margin-top: 60px;">
 			<img class="ui wireframe paragraph image" src="https://semantic-ui.com/images/wireframe/paragraph.png">
 			<img class="ui wireframe paragraph image" src="https://semantic-ui.com/images/wireframe/paragraph.png">
+			<p>asdfsaff</p>
 		</div>
     </div>
 </div>
@@ -43,3 +44,10 @@
     context: '#example3'
   });
 </script>
+
+
+<div class="divider"></div>
+<div class="ui checkbox">
+  <input type="checkbox" tabindex="0" class="hidden">
+  <label>Label</label>
+</div>
