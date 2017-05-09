@@ -1,5 +1,4 @@
-<div class="ui segment grid container rulemodule" id="rule-{{rule.id}}"
-     style="margin-top:0px;margin-bottom:0px">
+<div class="ui segment grid container rulemodule" id="rule-{{rule.id}}">
   <div class="ui centered row" style="padding-top:0px;padding-bottom:0px">
     <!-- FREQUENCY SELECTOR -->
     <div class="ui pagination menu">
@@ -8,17 +7,17 @@
       </div>
       <label>
         <div class="ui transparent input item">
-          <input size="1" value="1" style="padding-right:0px">
+         <input size="1" value="1" style="padding-right:0px">
         </div>
       </label>
       <div class="ui inline dropdown item" style="padding-left:0px">
-        <div class="text">Day</div>
+        <div class="text freqselectortext">Day</div>
         <i class="dropdown icon"></i>
         <div class="menu">
-          <div class="item" data-tab="Day">Days</div>
-          <div class="item" data-tab="Week">Weeks</div>
-          <div class="item" data-tab="Month">Months</div>
-          <div class="item" data-tab="Year">Years</div>
+          <div class="item freqselector" data-tab="Day">Days</div>
+          <div class="item freqselector" data-tab="Week">Weeks</div>
+          <div class="item freqselector" data-tab="Month">Months</div>
+          <div class="item freqselector" data-tab="Year">Years</div>
         </div>
       </div>
     </div>
@@ -31,7 +30,7 @@
     
     <!-- WEEK DAYS -->
     <div class="ui tab" data-tab="Week">
-      <div class="ui compact centered row five column doubling stackable grid segment" style="margin-bottom:0px; margin-top:0px">
+      <div class="ui centered row five column doubling stackable grid segment" style="margin-bottom:0px; margin-top:0px">
         <button class="mini ui column toggle button">Mo</button>
         <button class="mini ui column toggle button">Tu</button>
         <button class="mini ui column toggle button">We</button>
@@ -44,7 +43,7 @@
     
     <!-- MONTHS -->
     <div class="ui tab" data-tab="Year">
-       <div class="ui compact centered row five column doubling stackable grid segment" style="margin-bottom:0px; margin-top:0px">
+       <div class="ui centered row five column doubling stackable grid segment" style="margin-bottom:0px; margin-top:0px">
         <button class="mini ui column toggle button">Jan</button>
         <button class="mini ui column toggle button">Feb</button>
         <button class="mini ui column toggle button">Mar</button>
@@ -62,7 +61,7 @@
     
     <!-- DAYS OF MONTH -->
     <div class="ui tab" data-tab="Month">
-      <div class="ui compact centered row five column doubling stackable grid segment" style="margin-bottom:0px; margin-top:0px">
+      <div class="ui centered row five column doubling stackable grid segment" style="margin-bottom:0px; margin-top:0px">
         <button class="mini ui column toggle button">1</button>
         <button class="mini ui column toggle button">2</button>
         <button class="mini ui column toggle button">3</button>
@@ -97,8 +96,8 @@
       </div>
       
     </div>
+
   </div>
-  
   <div class="ui centered row" style="padding-top:0px;padding-bottom:0px">
     <div class="ui pagination menu">
       <div class="ui dropdown item">
@@ -106,9 +105,9 @@
           <div class="text">Repeats forever</div>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <div class="item" data-tab="Forever">Repeats forever</div>
-            <div class="item" data-tab="Date">Repeats until</div>
-            <div class="item" data-tab="Times">Repeats</div>
+            <div class="item repeatselector" data-tab="Forever">Repeats forever</div>
+            <div class="item repeatselector" data-tab="Date">Repeats until</div>
+            <div class="item repeatselector" data-tab="Times">Repeats</div>
           </div>
         </div>
       </div>

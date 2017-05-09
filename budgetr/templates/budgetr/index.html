@@ -5,8 +5,11 @@
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
 
 <div class="ui left aligned grid" id="main">
-	<div class="ui compact inverted segment five wide column">
+  <div class="ui compact inverted segment five wide column">
     <div class="ui row">
+      <div class="ui three bottom attached buttons">
+        <button class="ui secondary icon button"><i class="plus square outline icon"></i></button>
+      </div>
       {% for flow in flows %}
           {% include "budgetr/occurrencemodule.html" %}
       {% endfor %}
@@ -21,29 +24,38 @@
 </div>
 
 
+{# stuff to library #}
 <script type="text/javascript">
-	$('.ui.sticky').sticky({
-  	offset: 50,
-    context: '#main'
-  });
-  $('.ui.accordion').accordion()
+	
 
+  $('.reccurence .toggle').state() // animate all toggles
+  $('.reccurence .dropdown').dropdown() // animate all dropdowns
 
-  $('.reccurence .toggle').state()
-  console.log('afsfd')
-  $('.reccurence .dropdown').dropdown()
-  $('.reccurence .menu .dropdown .item').map(function(i, elem){
-    console.log(elem);
+  // animate and contextualize the frequency selector 
+  $('.reccurence .freqselector').map(function(i, elem){  
     $(elem).tab({
       context: elem.closest('.rulemodule')
     })
   })
-  $('.recurrence .ui.accordion').accordion()
-  $('.recurrence .new_rule')
-  $('.recurrence .refresh_rule')
-  $('.recurrence .save_rule')
+  $('.reccurence .repeatselector').tab() // animate repeats
+  $('.reccurence .ui.accordion').accordion() // animate the accordion 
 
 
-
-
+  $('.reccurence .new_rule').click(function(evt){
+    // fetch a new rule modal template from the server
+    // render it at the top of the accordion
+    console.log($(this).closest('.reccurence').find('h4').html())
+  });
+  $('.reccurence .refresh_rule').click(function(evt){
+    // fetch existing modals from the server for this flow
+    // reset the values and tabs of each modal so it appears correct
+  });
+  $('.reccurence .save_rule').click(function(evt){
+    // send a rule to the server with along with the flow id
+    // flash success or failure
+  });
+  $('.reccurence .delete_rule').click(function(evt){
+    // send a delete command to the server
+    // upon success remove the module from the dom 
+  });
 </script>
