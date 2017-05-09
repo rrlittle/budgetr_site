@@ -1,0 +1,21 @@
+<div class="recurrence" style="margin-top:10px">
+  <h4 class="centered top attached ui header">{{flow.name.title}}</h4>
+  <div class="ui attached segment" style="padding-top:0px;padding-bottom:0px">
+    <div class="ui styled accordion">
+      {% for rule in flow.rules %}
+        <div class="title">
+            <i class="dropdown icon"></i>
+            <span class="ui inline ">{{rule.label}}</span>
+        </div>
+        <div class="content">
+          {% include "budgetr/rulemodule.html" %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="ui three bottom attached mini buttons">
+    <button class="mini ui icon button new_rule"><i class="plus square outline icon"></i></button>
+    <button class="mini ui icon button refresh_rule"><i class="refresh icon"></i></button>
+    <button class="mini ui icon button save_rule"><i class="save icon"></i></button>
+  </div>
+</div>

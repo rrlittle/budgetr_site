@@ -1,24 +1,61 @@
 from django.shortcuts import render, get_object_or_404
 from models import Flow
-from forms import FlowPost
 from datetime import datetime
 import utils
 
+freq_types = [
+    'Years',
+    'Months',
+    'Weeks',
+    'Days'
+]
+
 
 def index(request):
-    flowsForms = []
+    flows = []
     for f in Flow.objects.all():
-        fp = FlowPost(instance=f)
-        fpv = fp.visible_fields()
-        flowsForms.append({
-            'name': fpv[0], 
-            'recurrence': fpv[1].as_widget(attrs={
-                'id': '%s-%s' % (f, f.id),
-                'class': 'recurrence-widget'
-            })
-        })
+        recurr = f.recurrence
+        rules = []
+        for rule in recurr.rrules:
+            rrule = {
+                'exclude': False,
+                'id': id(rule),
+                'freq': rule.freq,
+                'weekdays': rule.byday,
+                'months': rule.bymonth,
+                'monthdays': rule.bymonthday,
+                'label': rule.to_text(),
+                'freq_type': freq_types[rule.freq]
+            }
+            rules.append(rrule)
+        for rule in recurr.exrules:
+            rrule = {
+                'exclude': True,
+                'id': id(rule),
+                'freq': rule.freq,
+                'weekdays': rule.byday,
+                'months': rule.bymonth,
+                'monthdays': rule.bymonthday,
+                'label': rule.to_text(),
+                'freq_type': freq_types[rule.freq]
+            }
+            rules.append(rrule)
+
+        dates = [{'date': d.strftime('%m/%d/%Y'), 'exclude': False}
+                 for d in recurr.rdates]
+        dates += [{'date': d.strftime('%m/%d/%Y'), 'exclude': True}
+                 for d in recurr.exdates]
+
+        flow = {
+            'id': f.id,
+            'name': f.name,
+            'start': f.start_date.strftime('%m/%d/%Y'),
+            'rules': rules,
+            'dates': dates,
+        }
+        flows.append(flow)
     context = {
-        'flows': flowsForms
+        'flows': flows
     }
     
     return render(request, 'budgetr/index.html', context)

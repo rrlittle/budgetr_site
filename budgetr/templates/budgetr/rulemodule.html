@@ -1,0 +1,132 @@
+<div class="ui segment grid container rulemodule" id="rule-{{rule.id}}"
+     style="margin-top:0px;margin-bottom:0px">
+  <div class="ui centered row" style="padding-top:0px;padding-bottom:0px">
+    <!-- FREQUENCY SELECTOR -->
+    <div class="ui pagination menu">
+      <div class=" text item">
+      Occurs every
+      </div>
+      <label>
+        <div class="ui transparent input item">
+          <input size="1" value="1" style="padding-right:0px">
+        </div>
+      </label>
+      <div class="ui inline dropdown item" style="padding-left:0px">
+        <div class="text">Day</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-tab="Day">Days</div>
+          <div class="item" data-tab="Week">Weeks</div>
+          <div class="item" data-tab="Month">Months</div>
+          <div class="item" data-tab="Year">Years</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="ui centered row middlepanes" style="padding-top:0px;padding-bottom:0px">
+    
+    <!-- DAY -->
+    <div class="ui tab active" data-tab="Day"></div>
+    
+    <!-- WEEK DAYS -->
+    <div class="ui tab" data-tab="Week">
+      <div class="ui compact centered row five column doubling stackable grid segment" style="margin-bottom:0px; margin-top:0px">
+        <button class="mini ui column toggle button">Mo</button>
+        <button class="mini ui column toggle button">Tu</button>
+        <button class="mini ui column toggle button">We</button>
+        <button class="mini ui column toggle button">Th</button>
+        <button class="mini ui column toggle button">Fr</button>
+        <button class="mini ui column toggle button">Sa</button>
+        <button class="mini ui column toggle button">Su</button>
+      </div>
+    </div>
+    
+    <!-- MONTHS -->
+    <div class="ui tab" data-tab="Year">
+       <div class="ui compact centered row five column doubling stackable grid segment" style="margin-bottom:0px; margin-top:0px">
+        <button class="mini ui column toggle button">Jan</button>
+        <button class="mini ui column toggle button">Feb</button>
+        <button class="mini ui column toggle button">Mar</button>
+        <button class="mini ui column toggle button">Apr</button>
+        <button class="mini ui column toggle button">May</button>
+        <button class="mini ui column toggle button">Jun</button>
+        <button class="mini ui column toggle button">Jul</button>
+        <button class="mini ui column toggle button">Aug</button>
+        <button class="mini ui column toggle button">Sep</button>
+        <button class="mini ui column toggle button">Oct</button>
+        <button class="mini ui column toggle button">Nov</button>
+        <button class="mini ui column toggle button">Dec</button>    
+      </div>
+    </div>
+    
+    <!-- DAYS OF MONTH -->
+    <div class="ui tab" data-tab="Month">
+      <div class="ui compact centered row five column doubling stackable grid segment" style="margin-bottom:0px; margin-top:0px">
+        <button class="mini ui column toggle button">1</button>
+        <button class="mini ui column toggle button">2</button>
+        <button class="mini ui column toggle button">3</button>
+        <button class="mini ui column toggle button">4</button>
+        <button class="mini ui column toggle button">5</button>
+        <button class="mini ui column toggle button">6</button>
+        <button class="mini ui column toggle button">7</button>
+        <button class="mini ui column toggle button">8</button>
+        <button class="mini ui column toggle button">9</button>
+        <button class="mini ui column toggle button">10</button>
+        <button class="mini ui column toggle button">11</button>
+        <button class="mini ui column toggle button">12</button>
+        <button class="mini ui column toggle button">13</button>
+        <button class="mini ui column toggle button">14</button>
+        <button class="mini ui column toggle button">15</button>
+        <button class="mini ui column toggle button">16</button>
+        <button class="mini ui column toggle button">17</button>
+        <button class="mini ui column toggle button">18</button>
+        <button class="mini ui column toggle button">19</button>
+        <button class="mini ui column toggle button">20</button>
+        <button class="mini ui column toggle button">21</button>
+        <button class="mini ui column toggle button">22</button>
+        <button class="mini ui column toggle button">23</button>
+        <button class="mini ui column toggle button">24</button>
+        <button class="mini ui column toggle button">25</button>
+        <button class="mini ui column toggle button">26</button>
+        <button class="mini ui column toggle button">27</button>
+        <button class="mini ui column toggle button">28</button>
+        <button class="mini ui column toggle button">29</button>
+        <button class="mini ui column toggle button">30</button>
+        <button class="mini ui column toggle button">31</button>    
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="ui centered row" style="padding-top:0px;padding-bottom:0px">
+    <div class="ui pagination menu">
+      <div class="ui dropdown item">
+        <div class="ui inline dropdown">
+          <div class="text">Repeats forever</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-tab="Forever">Repeats forever</div>
+            <div class="item" data-tab="Date">Repeats until</div>
+            <div class="item" data-tab="Times">Repeats</div>
+          </div>
+        </div>
+      </div>
+      <div class="ui tab" data-tab="Forever"></div>
+      <div class="ui tab" data-tab="Date">
+        <div class="ui transparent input item">
+          <input type="date">
+        </div>
+      </div>
+      <div class="ui tab" data-tab="Times">
+        <div class="ui transparent input item">
+          <label>
+            <input size="1" value="1">
+            times
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
