@@ -2,13 +2,13 @@
   <h4 class="centered top attached ui header" style="margin-top:10px">{{flow.name.title}}</h4>
   <div class="ui attached segment">
     
-    <div class="ui styled accordion ">
+    <div class="ui styled accordion " style="padding-bottom:0px">
       {% for rule in flow.rules %}
         <div class="title">
             <i class="dropdown icon"></i>
-            <span class="ui inline ">{{rule.label}}</span>
+            <small class="ui inline ">{{rule.label}}</small>
         </div>
-        <div class="content">
+        <div class="content" style="padding-bottom:0px">
           {% include "budgetr/rulemodule.html" %}
         </div>
       {% endfor %}

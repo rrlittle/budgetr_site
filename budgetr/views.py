@@ -61,16 +61,34 @@ def index(request):
     return render(request, 'budgetr/index.html', context)
 
 
-def flow(request, flowid, end_yr, end_mo, end_day):
-    end_date = datetime(int(end_yr), int(end_mo), int(end_day))
-    flow = get_object_or_404(Flow, flowid)
-    tally = utils.calc_flow(flow, end_date)
-    return utils.plot(tally)
+def getflows(request, htmljson):
+    ''' returns json with all the existing flow modules as either html or json
+        so you can embed them, directly into a div or populate your own form
+    '''
+    pass
 
 
-def wealth(request, end_yr, end_mo, end_day):
-    end_date = datetime(int(end_yr), int(end_mo), int(end_day))
-    print 'calcing wealth'
-    wealth = utils.calc_wealth(end_date)
-    print wealth
-    return utils.plot(wealth)
+def new_flow(request):
+    ''' returns either the html for an empty flow form, this one has an
+        editable title. until it is saved
+    '''
+    pass
+
+def getflow(request, flowid):
+    ''' returns the html for a single flow
+    '''
+    pass
+
+# def flow(request, flowid, end_yr, end_mo, end_day):
+#     end_date = datetime(int(end_yr), int(end_mo), int(end_day))
+#     flow = get_object_or_404(Flow, flowid)
+#     tally = utils.calc_flow(flow, end_date)
+#     return utils.plot(tally)
+
+
+# def wealth(request, end_yr, end_mo, end_day):
+#     end_date = datetime(int(end_yr), int(end_mo), int(end_day))
+#     print 'calcing wealth'
+#     wealth = utils.calc_wealth(end_date)
+#     print wealth
+#     return utils.plot(wealth)

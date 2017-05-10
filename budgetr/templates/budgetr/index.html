@@ -1,8 +1,14 @@
 {% load static %}
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
-<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+{# <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> #}
+{# <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css"> #}
+{# <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script> #}
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
+
 
 <div class="ui left aligned grid" id="main">
   <div class="ui compact inverted segment five wide column">
@@ -10,9 +16,8 @@
       <div class="ui three bottom attached buttons">
         <button class="ui secondary icon button"><i class="plus square outline icon"></i></button>
       </div>
-      {% for flow in flows %}
-          {% include "budgetr/occurrencemodule.html" %}
-      {% endfor %}
+      <div id="flowcontainer">
+      </div>
     </div>
 	</div>
     <div class="ui seven wide column container">
@@ -26,10 +31,20 @@
 
 {# stuff to library #}
 <script type="text/javascript">
-	
+  var api = $.fn.api.settings.api
+  api['getflows'] = '/getflows';
+  api['getflows'] = '/flows';
+  api['getflows'] = '/newflow';
+
+	// function to refresh flow container
+  function refresh_flowcontainer(){
+
+  }
+
 
   $('.reccurence .toggle').state() // animate all toggles
   $('.reccurence .dropdown').dropdown() // animate all dropdowns
+  $('.reccurence .ui.accordion').accordion() // animate the accordion 
 
   // animate and contextualize the frequency selector 
   $('.reccurence .freqselector').map(function(i, elem){  
@@ -37,8 +52,11 @@
       context: elem.closest('.rulemodule')
     })
   })
-  $('.reccurence .repeatselector').tab() // animate repeats
-  $('.reccurence .ui.accordion').accordion() // animate the accordion 
+  $('.reccurence .repeatselector').map(function(i, elem){
+    $(elem).tab({
+      context: elem.closest('.repeatselectorcontext')
+    })
+  });
 
 
   $('.reccurence .new_rule').click(function(evt){
@@ -57,5 +75,18 @@
   $('.reccurence .delete_rule').click(function(evt){
     // send a delete command to the server
     // upon success remove the module from the dom 
+  });
+
+  $('.datepicker').calendar({
+    type: 'date',
+    formatter: {
+      date: function (date, settings) {
+        if (!date) return '';
+        var day = date.getDate();
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+        return day + '/' + month + '/' + year;
+      }
+    }
   });
 </script>
